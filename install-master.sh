@@ -1,7 +1,10 @@
 #!/bin/bash
 ip -4 address show dev enp0s8 | grep -oP '(?<=inet\s)\d+(\.\d+){3}' > /vagrant/master_ip
 
-sed "s/{advertise-address}/$(cat /vagrant/master_ip)" /vagrant/kubeadm-init.yaml > /root/kubeadm-init.yaml
+cp /vagrant/kubeadm-init.yaml /root/kubeadm-init.yaml
+sed -i "s/{advertise-address}/$(cat /vagrant/master_ip)" /root/kubeadm-init.yaml
+sed -i "s/{advertise-address}/$(cat /vagrant/token)" /root/kubeadm-init.yaml
+
 kubeadm init --config /root/kubeadm-init.yaml
 
 mkdir /home/vagrant/.kube
