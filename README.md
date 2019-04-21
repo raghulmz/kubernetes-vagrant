@@ -1,7 +1,7 @@
 # Kubernetes on Vagrant
 
 * Clone the repo
-* Create a token
+* Create a token (The token on the repo is super insecure.)
 * Run `vagrant up` to create a kubernetes cluster with one master node and three workers.
 
 ```bash
