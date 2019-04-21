@@ -14,7 +14,6 @@ kube_worker = {
         :box_version => "201803.24.0 ",
         :mem => "4096",
         :cpu => "2",
-        :rootdisksize => '20GB'
     }
 
 Vagrant.configure("2") do |config|
